@@ -15,11 +15,12 @@ options {
 program: EOF;
 
 
-BKNETID: FIRST+ '.' SECOND+ FREE? FREE? FREE? FREE? END;
-fragment FIRST: [a-z];
-fragment SECOND: [a-z];
-fragment FREE: [a-z0-9]|'_'|'.';
-fragment END: [a-z0-9]|'_';
+IPv4: FIRST '.' SECOND '.' THIRD '.' FOURTH;
+fragment FIRST: [1-9] [0-9]? [0-9]?| [0-9];
+fragment SECOND: [1-9] [0-9]? [0-9]?| [0-9];
+fragment THIRD: [1-9] [0-9]? [0-9]?| [0-9];
+fragment FOURTH: [1-9] [0-9]? [0-9]?| [0-9];
+
 
 
 
