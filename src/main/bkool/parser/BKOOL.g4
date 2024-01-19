@@ -15,10 +15,7 @@ options {
 program: EOF;
 
 
-INDENTIFIER: '\'' CHAR* QC? '\'';
-
-fragment QC: '\'' CHAR* '\'';
-fragment CHAR: [0-9A-Za-z]|'?'|' '|'-'|'.';
+SHEXA: [0-9]+ [0-9A-Fa-f][02468aceAce]+;
 
 
 
