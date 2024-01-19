@@ -15,7 +15,11 @@ options {
 program: EOF;
 
 
-SHEXA: [0-9]+ [0-9A-Fa-f]* [02468aceACE]+;
+BKNETID: FIRST+ '.' SECOND+ FREE? FREE? FREE? FREE? END;
+fragment FIRST: [a-z];
+fragment SECOND: [a-z];
+fragment FREE: [a-z0-9]|'_'|'.';
+fragment END: [a-z0-9]|'_';
 
 
 
