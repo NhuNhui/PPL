@@ -15,7 +15,7 @@ options {
 program: EOF;
 
 
-SHEXA: [0-9]+ [0-9A-Fa-f][02468aceAce]+;
+SHEXA: [0-9]+ [0-9A-Fa-f]* [02468aceACE]+;
 
 
 
