@@ -15,15 +15,12 @@ options {
 program: EOF;
 
 
-IPv4: FIRST '.' SECOND '.' THIRD '.' FOURTH;
-fragment FIRST: [1-9] [0-9]? [0-9]?| [0-9];
-fragment SECOND: [1-9] [0-9]? [0-9]?| [0-9];
-fragment THIRD: [1-9] [0-9]? [0-9]?| [0-9];
-fragment FOURTH: [1-9] [0-9]? [0-9]?| [0-9];
-
-
-
-
+FLOAT:NORMAL|SCIENCE1|SCIENCE2;
+fragment NORMAL:INT '.' [0-9]*;
+fragment SCIENCE1:INT '.' [0-9]+ EXP '-'? INT;
+fragment SCIENCE2:INT EXP '-'? INT;
+fragment INT:'0'|[1-9] [0-9]*;
+fragment EXP:'e'|'E';
 
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 
