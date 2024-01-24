@@ -1,1 +1,34 @@
-10+20*30
+program: decllist EOF;
+decllist: decl decllist|decl;
+decl: vardecl|funcdecl;
+
+vardecl: typ idlist SM;
+typ: INT|FLOAT;
+idlist: ID CM idlist|ID;
+
+funcdecl: typ ID paramdecl body;
+paramdecl: LR paramlist RR;
+paramlist: paramprime|;
+paramprime: param SM paramprime|param;
+param: typ idlist;
+
+body: LB statelist re RB;
+re: RETURN expr SM;
+statelist: state statelist| ;
+state: vardecl|func|assign;
+func: ID LR varcall RR SM;
+varcall: expr CM varcall|expr;
+assign: ID ASS expr SM;
+
+INT: 'int';
+FLOAT: 'float';
+SM: ';';
+CM: ',';
+LR: '(';
+RR: ')';
+LB: '{';
+RB: '}';
+ASS: '=';
+expr: 'expr';
+ID: [a-zA-Z]+;
+RETURN: 'return ';
